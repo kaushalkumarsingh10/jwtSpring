@@ -36,7 +36,7 @@ public class AccountController {
     }
 
     @PostMapping("/updateAccount")
-    public Account updateAccount(@RequestBody Account account) {
+    public Account updateAccount(@RequestBody Account account) throws Exception {
         logger.debug("-- /updateAccount  account : {}",account);
         return accountMapService.updateAccountNumber(account);
     }

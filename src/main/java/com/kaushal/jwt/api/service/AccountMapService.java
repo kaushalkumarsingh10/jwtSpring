@@ -25,7 +25,7 @@ public interface AccountMapService {
      * @param account
      * @return
      */
-    public Account updateAccountNumber(Account account);
+    public Account updateAccountNumber(Account account) throws Exception;
     /**
      * Validate and create account Details for the Account object provided
      * @param account

@@ -45,9 +45,14 @@ public class AccountMapServiceImpl implements AccountMapService {
      * @return
      */
     @Override
-    public Account updateAccountNumber(Account account) {
-        return accountService.accountPresent(account.getAccountNumber())
-                ? accountService.update(account):accountService.save(account);
+    public Account updateAccountNumber(Account account) throws Exception {
+        if(accountService.accountPresent(account.getAccountNumber()))
+            return accountService.update(account);
+        else {
+            logger.warn("Cannot udpate account as account number doesn't exist");
+            throw new Exception("Account Not Present");
+        }
+
     }
 
     /**
